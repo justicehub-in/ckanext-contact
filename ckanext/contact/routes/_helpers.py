@@ -86,6 +86,14 @@ def submit():
                 u'reply-to': data_dict[u'email']
                 }
             }
+        
+        # config.get('smtp.user')
+        import logging
+        log = logging.getLogger(__name__)
+        log.info("Sent email config log")
+        log.info(toolkit.config.get(u'ckanext.contact.mail_to'))
+        log.info(toolkit.config.get(u'email_to'))
+        log.info(toolkit.config.get(u'smtp.user'))
 
         # allow other plugins to modify the mail_dict
         for plugin in PluginImplementations(IContact):
